@@ -42,7 +42,8 @@ options=(
     25 "Docker-compose" off
     26 "Transmission" off
     27 "Logitech MX Master mapping" off
-    28 "Generate SSH Keys" off)
+    28 "Generate SSH Keys" off
+    29 "Todoist" off)
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
 for choice in $choices
@@ -212,6 +213,10 @@ do
         28)
             echo "**** Generating SSH keys ****"
             ssh-keygen -t rsa -b 4096
+            ;;
+        29)
+            echo " **** Installing Todoist ****"
+            snap install todoist
             ;;
     esac
 done
