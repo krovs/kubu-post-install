@@ -43,7 +43,9 @@ options=(
     26 "Transmission" off
     27 "Logitech MX Master mapping" off
     28 "Generate SSH Keys" off
-    29 "Todoist" off)
+    29 "Todoist" off
+    30 "Flameshot" off
+    31 "Traceroute" off)
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
 for choice in $choices
@@ -215,8 +217,16 @@ do
             ssh-keygen -t rsa -b 4096
             ;;
         29)
-            echo " **** Installing Todoist ****"
+            echo "**** Installing Todoist ****"
             snap install todoist
+            ;;
+        30)
+            echo "**** Installing Flameshot ****"
+            apt install -y flameshot
+            ;;
+        31)
+            echo "**** Installing traceroute ****"
+            apt install -y traceroute
             ;;
     esac
 done
